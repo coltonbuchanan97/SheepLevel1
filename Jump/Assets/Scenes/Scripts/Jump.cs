@@ -16,6 +16,7 @@ public class Jump : MonoBehaviour
     private Animator myAnimator;
     public GameManager theGameManager;
 
+    private bool dead = false;
     public bool isJumping;
     public bool grounded;
     public LayerMask whatIsTheGround;
@@ -32,6 +33,7 @@ public class Jump : MonoBehaviour
 
     private void Update()
     {
+        dead = false;
         grounded = Physics2D.IsTouchingLayers(myCollider, whatIsTheGround);
 
         rbody.velocity = new Vector2(speed, rbody.velocity.y);
@@ -63,6 +65,7 @@ public class Jump : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy")
         {
+            dead = true;
             theGameManager.RestartGame();
         }
         if (collision.gameObject.tag == "Coin")
