@@ -6,15 +6,11 @@ public class GameManager : MonoBehaviour {
 
     public GameObject player;
     private Vector3 startPoint;
+    public static GameManager singleton;
 
 	// Use this for initialization
 	void Start () {
         startPoint = player.transform.position;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 
     public void RestartGame()
