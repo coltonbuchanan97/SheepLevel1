@@ -21,6 +21,10 @@ public class Jump : MonoBehaviour
     public bool grounded;
     public LayerMask whatIsTheGround;
 
+    public AudioSource jumpSound;
+    public AudioSource deathSound;
+    public AudioSource coinSound;
+
     // Update is called once per frame
     private void Start()
     {
@@ -43,6 +47,7 @@ public class Jump : MonoBehaviour
             isJumping = true;
             jumpTimeCounter = jumpTime;
             rbody.velocity = new Vector2(rbody.velocity.x, jumpPower);
+            jumpSound.Play();
         }
         if (Input.GetKey(KeyCode.Space) && isJumping)
         {
@@ -50,6 +55,7 @@ public class Jump : MonoBehaviour
             {
                 rbody.velocity = new Vector2(rbody.velocity.x, jumpPower);
                 jumpTimeCounter -= Time.deltaTime;
+                jumpSound.Play();
             } else {
                 isJumping = false;
             }
@@ -67,10 +73,12 @@ public class Jump : MonoBehaviour
         {
             dead = true;
             theGameManager.RestartGame();
+            deathSound.Play();
         }
         if (collision.gameObject.tag == "Coin")
         {
             theGameManager.RestartGame();
+            coinSound.Play();
         }
     }
 }
