@@ -41,6 +41,7 @@ public class Jump : MonoBehaviour
 
     private void Update()
     {
+
         grounded = Physics2D.IsTouchingLayers(myCollider, whatIsTheGround);
 
         rbody.velocity = new Vector2(speed, rbody.velocity.y);
@@ -68,6 +69,8 @@ public class Jump : MonoBehaviour
             isJumping = false;
         } 
         myAnimator.SetBool("Grounded", grounded);
+
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

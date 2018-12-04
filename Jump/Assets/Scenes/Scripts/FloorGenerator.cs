@@ -19,6 +19,7 @@ public class FloorGenerator : MonoBehaviour {
     public ObjectPool[] theObjectPool;
 
     private CoinGenerator theCoinGenerator;
+    public float maxCoinage;
 
 
 	// Use this for initialization
@@ -56,8 +57,11 @@ public class FloorGenerator : MonoBehaviour {
             newPlatform.transform.rotation = transform.rotation;
             newPlatform.SetActive(true);
 
-            theCoinGenerator.SpawnCoins(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z));
-
+            if (Random.Range(0f, 100f) < maxCoinage)
+            {
+                theCoinGenerator.SpawnCoins(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z));
+            }
+          
         }
 		
 	}
