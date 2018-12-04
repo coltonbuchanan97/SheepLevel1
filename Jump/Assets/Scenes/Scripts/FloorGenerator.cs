@@ -21,6 +21,9 @@ public class FloorGenerator : MonoBehaviour {
     private CoinGenerator theCoinGenerator;
     public float maxCoinage;
 
+    private ItemGenerator theItemGenerator;
+    public float maxItems;
+
 
 	// Use this for initialization
 	void Start () {
@@ -34,6 +37,7 @@ public class FloorGenerator : MonoBehaviour {
         }
 
         theCoinGenerator = FindObjectOfType<CoinGenerator>();
+        theItemGenerator = FindObjectOfType<ItemGenerator>();
 	}
 	
 	// Update is called once per frame
@@ -61,7 +65,12 @@ public class FloorGenerator : MonoBehaviour {
             {
                 theCoinGenerator.SpawnCoins(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z));
             }
-          
+
+            if (Random.Range(0f, 100f) < maxItems)
+            {
+                theItemGenerator.SpawnItems(new Vector3(transform.position.x, transform.position.y + 0.4f, transform.position.z));
+            }
+
         }
 		
 	}
