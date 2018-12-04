@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour {
 
     public void RestartGame()
     {
-        //StartCoroutine("RestartGameCo");
+        StartCoroutine("RestartGameCo");
         theDeathScreen.gameObject.SetActive(true);
         player.gameObject.SetActive(false);
     }
@@ -40,11 +40,10 @@ public class GameManager : MonoBehaviour {
         //Instantiate(floor, new Vector3 (-1.88f, 0.78f, 0f), player.transform.rotation);
         SceneManager.LoadScene("EndlessRunner");
     }
-    /*, 
+  
     public IEnumerator RestartGameCo()
     {
         yield return new WaitForSeconds(0.1f);
         player.transform.position = startPoint;
     }
-    */
 }

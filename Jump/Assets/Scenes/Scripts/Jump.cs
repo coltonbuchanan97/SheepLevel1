@@ -15,6 +15,7 @@ public class Jump : MonoBehaviour
     private Collider2D myCollider;
     private Animator myAnimator;
     public GameManager theGameManager;
+    public ScoreManager theScoreManager;
 
     public bool dead;
     public bool isJumping;
@@ -24,6 +25,7 @@ public class Jump : MonoBehaviour
     public AudioSource jumpSound;
     public AudioSource deathSound;
     public AudioSource coinSound;
+
 
     // Update is called once per frame
     private void Start()
@@ -75,11 +77,6 @@ public class Jump : MonoBehaviour
             dead = true;
             theGameManager.RestartGame();
             deathSound.Play();
-        }
-        if (collision.gameObject.tag == "Coin")
-        {
-            theGameManager.Win();
-            coinSound.Play();
         }
     }
 }
