@@ -15,13 +15,15 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         startPoint = player.transform.position;
-	}
+        Time.timeScale = 1.0f;
+    }
 
     public void RestartGame()
     {
         StartCoroutine("RestartGameCo");
         theDeathScreen.gameObject.SetActive(true);
         player.gameObject.SetActive(false);
+        
     }
 
     public void Win()
@@ -39,11 +41,14 @@ public class GameManager : MonoBehaviour {
 
         //Instantiate(floor, new Vector3 (-1.88f, 0.78f, 0f), player.transform.rotation);
         SceneManager.LoadScene("EndlessRunner");
+        Time.timeScale = 1.0f;
     }
   
     public IEnumerator RestartGameCo()
     {
         yield return new WaitForSeconds(0.1f);
+        Time.timeScale = 0;
         player.transform.position = startPoint;
+      
     }
 }
