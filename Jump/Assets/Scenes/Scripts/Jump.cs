@@ -26,7 +26,6 @@ public class Jump : MonoBehaviour
     public AudioSource deathSound;
     public AudioSource coinSound;
 
-
     // Update is called once per frame
     private void Start()
     {
@@ -37,6 +36,8 @@ public class Jump : MonoBehaviour
         myCollider = GetComponent<Collider2D>();
 
         myAnimator = GetComponent<Animator>();
+
+
     }
 
     private void Update()
@@ -68,6 +69,7 @@ public class Jump : MonoBehaviour
         {
             isJumping = false;
         } 
+        
         myAnimator.SetBool("Grounded", grounded);
 
 
