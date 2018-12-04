@@ -25,7 +25,7 @@ public class ScoreManager : MonoBehaviour {
         scoreCount += scoreToAdd;
     }
 
-    public void DoubleScore()
+    public void AddScore()
     {
         scoreCount *= 2;
     }

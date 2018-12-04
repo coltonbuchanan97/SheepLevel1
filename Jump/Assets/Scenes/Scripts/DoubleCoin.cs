@@ -16,7 +16,7 @@ public class DoubleCoin : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Player")
         {
-            theScoreManager.DoubleScore();
+            theScoreManager.AddScore();
             coinSound.Play();
             gameObject.SetActive(false);
         }
