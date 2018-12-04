@@ -24,6 +24,9 @@ public class FloorGenerator : MonoBehaviour {
     private ItemGenerator theItemGenerator;
     public float maxItems;
 
+    private float randomPlacement;
+
+    private Vector3 temp;
 
 	// Use this for initialization
 	void Start () {
@@ -48,18 +51,21 @@ public class FloorGenerator : MonoBehaviour {
 
             platformSelector = Random.Range(0, theObjectPool.Length);
 
-            transform.position = new Vector3(transform.position.x + platformWidths[platformSelector] + distance, transform.position.y, transform.position.z);
+            randomPlacement = Random.Range(0f, 2f);
 
-        
+            temp = new Vector3(transform.position.x + platformWidths[platformSelector] + distance, transform.position.y, transform.position.z);
+
+            transform.position = new Vector3(transform.position.x + platformWidths[platformSelector] + distance, transform.position.y + randomPlacement, transform.position.z);
 
             //Instantiate(thePlatforms[platformSelector], transform.position, transform.rotation);
 
-            
+
             GameObject newPlatform =  theObjectPool[platformSelector].getPooledObject();
 
             newPlatform.transform.position = transform.position;
             newPlatform.transform.rotation = transform.rotation;
             newPlatform.SetActive(true);
+   
 
             if (Random.Range(0f, 100f) < maxCoinage)
             {
@@ -71,6 +77,7 @@ public class FloorGenerator : MonoBehaviour {
                 theItemGenerator.SpawnItems(new Vector3(transform.position.x, transform.position.y + 0.4f, transform.position.z));
             }
 
+            transform.position = temp;
         }
 		
 	}
