@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Jump : MonoBehaviour
-{
+public class Jump : PlayerSpeedandJumpPower{
+    /*
     public float speed;
     public float jumpPower;
  
     private float jumpTimeCounter;
     public float jumpTime;
+    */
    
 
     private Rigidbody2D rbody;
