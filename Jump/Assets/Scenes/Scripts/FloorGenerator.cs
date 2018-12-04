@@ -18,6 +18,8 @@ public class FloorGenerator : MonoBehaviour {
 
     public ObjectPool[] theObjectPool;
 
+    private CoinGenerator theCoinGenerator;
+
 
 	// Use this for initialization
 	void Start () {
@@ -29,6 +31,8 @@ public class FloorGenerator : MonoBehaviour {
         {
             platformWidths[i] = theObjectPool[i].pooledObject.GetComponent<BoxCollider2D>().size.x;
         }
+
+        theCoinGenerator = FindObjectOfType<CoinGenerator>();
 	}
 	
 	// Update is called once per frame
@@ -51,7 +55,9 @@ public class FloorGenerator : MonoBehaviour {
             newPlatform.transform.position = transform.position;
             newPlatform.transform.rotation = transform.rotation;
             newPlatform.SetActive(true);
-            
+
+            theCoinGenerator.SpawnCoins(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z));
+
         }
 		
 	}

@@ -1779,7 +1779,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 214875157}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.084, y: 0.1, z: 11.98}
+  m_LocalPosition: {x: 0.084, y: 0.1, z: 17.13}
   m_LocalScale: {x: 2.5211077, y: 1.6673237, z: 0.23569301}
   m_Children:
   - {fileID: 1724473970}
@@ -4381,6 +4381,48 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &597768838
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 597768839}
+  - component: {fileID: 597768840}
+  m_Layer: 0
+  m_Name: CoinPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &597768839
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 597768838}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1780030076}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &597768840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 597768838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9afefeed00b662540a691861328a46b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObject: {fileID: 816309154}
+  amount: 10
 --- !u!1 &608889534
 GameObject:
   m_ObjectHideFlags: 0
@@ -5549,6 +5591,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &816309154 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1680353118048224, guid: eb522a0623df98c4bbb32e3489c458fe,
+    type: 2}
+  m_PrefabInternal: {fileID: 1018008549}
+--- !u!114 &816309155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 816309154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd2b4ed7131800498f4956cd12cfa37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floorDestroyPoint: {fileID: 1441341686}
 --- !u!1 &828896299
 GameObject:
   m_ObjectHideFlags: 0
@@ -12980,6 +13039,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1780030076}
+  - component: {fileID: 1780030077}
   m_Layer: 0
   m_Name: CoinGenerator
   m_TagString: Untagged
@@ -12996,10 +13056,24 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.06, y: 1.37, z: 5.8999996}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 597768839}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1780030077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1780030075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b9a48440c1ac4b48b05beb38771c430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinPool: {fileID: 597768840}
+  distance: 1
 --- !u!1 &1796565370
 GameObject:
   m_ObjectHideFlags: 0
