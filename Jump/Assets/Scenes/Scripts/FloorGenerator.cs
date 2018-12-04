@@ -12,6 +12,8 @@ public class FloorGenerator : MonoBehaviour {
     public float distanceMax;
     public float distanceMin;
 
+    public ObjectPool theObjectPool;
+
 
 	// Use this for initialization
 	void Start () {
@@ -27,7 +29,13 @@ public class FloorGenerator : MonoBehaviour {
 
             transform.position = new Vector3(transform.position.x + floorWidth + distance, transform.position.y, transform.position.z);
 
-            Instantiate(floor, transform.position, transform.rotation);
+            //Instantiate(floor, transform.position, transform.rotation);
+
+            GameObject newPlatform =  theObjectPool.getPooledObject();
+
+            newPlatform.transform.position = transform.position;
+            newPlatform.transform.rotation = transform.rotation;
+            newPlatform.SetActive(true);
         }
 		
 	}

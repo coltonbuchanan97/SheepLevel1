@@ -16,7 +16,8 @@ public class FloorDestroyer : MonoBehaviour {
 		
         if(transform.position.x < floorDestroyPoint.transform.position.x)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            gameObject.SetActive(false);
         }
 	}
 }
